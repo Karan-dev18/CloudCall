@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to bottom right, #0F2027, #203A43, #2C5364);
+  background-attachment: fixed;
+  color: #FFFFFF;
+}
+
+/* ======== stream css overrides ======== */
+.str-video__call-stats {
+  max-width: 500px;
+  position: relative;
+}
+
+.str-video__speaker-layout__wrapper {
+  max-height: 700px;
+}
+
+.str-video__participant-details {
+  color: white;
+}
+
+.str-video__menu-container {
+  color: white;
+}
+
+.str-video__notification {
+  color: white;
+}
+
+.str-video__participant-list {
+  background-color: #1c1f2e;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  height: 100%;
+}
+
+.str-video__call-controls__button {
+  height: 40px;
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.glassmorphism2 {
+  background: rgba(18, 17, 17, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ==== clerk class override ===== */
+
+.cl-userButtonPopoverActionButtonIcon {
+  color: white;
+}
+
+.cl-logoBox {
+  height: 40px;
+}
+.cl-dividerLine {
+  background: #252a41;
+  height: 2px;
+}
+
+.cl-socialButtonsIconButton {
+  border: 3px solid #565761;
+}
+
+.cl-internal-wkkub3 {
+  color: white;
+}
+.cl-userButtonPopoverActionButton {
+  color: white;
+}
+.cl-providerIcon__github{
+  filter: invert(1);
+}
+
+
+/* =============================== */
+
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  .glass {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10;
+  }
+
+  .glass-panel {
+    @apply bg-white/10 border border-white/20 backdrop-blur-lg shadow-xl shadow-black/20;
+  }
+}
+
+/* animation */
+
+.show-block {
+  width: 100%;
+  max-width: 350px;
+  display: block;
+  animation: show 0.7s forwards linear;
+}
+
+@keyframes show {
+  0% {
+    animation-timing-function: ease-in;
+    width: 0%;
+  }
+
+  100% {
+    animation-timing-function: ease-in;
+    width: 100%;
+}
+}
+
+/* ======== Stream Chat MeetBee Overrides ======== */
+.str-chat {
+  /* Force Transparent Backgrounds for Glassmorphism */
+  --str-chat__background-color: transparent;
+  --str-chat__primary-surface-color: transparent;
+  --str-chat__secondary-surface-color: rgba(255, 255, 255, 0.05);
+  --str-chat__text-color: #FFFFFF;
+  
+  /* Force Light Blue Accents */
+  --str-chat__primary-color: #38BDF8;
+  
+  /* Force Inputs to Glass Mode */
+  --str-chat__message-input-background-color: rgba(255, 255, 255, 0.1);
+  --str-chat__input-background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Bulletproof fixes for the Input Box */
+.str-chat__message-input {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(16px);
+}
+
+.str-chat__input-flat textarea {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+/* Fix Channel Header */
+.str-chat__header-livestream {
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Remove default message list background if any */
+.str-chat__list {
+  background-color: transparent !important;
+}
