@@ -61,7 +61,7 @@ const MeetingRoom = () => {
       const channelId = call.id;
       const newChannel = chatClient.channel('messaging', channelId, {
         name: `Meeting ${channelId}`,
-      });
+      } as Record<string, any>);
       newChannel.watch().then(() => setChannel(newChannel));
     }
   }, [chatClient, call?.id]);
@@ -94,8 +94,8 @@ const MeetingRoom = () => {
     setNotes(call.state.custom?.notes || '');
     
     const unsubscribeCustom = call.on('custom', (event) => {
-      if (event.type === 'buzz') {
-        const userId = event.user?.id || 'Someone';
+      if ((event as any).type === 'buzz') {
+        const userId = (event as any).user?.id || 'Someone';
         toast({ title: `🐝 ${userId} Buzzed!` });
         
         setBuzzedUsers((prev) => [...prev, userId]);
