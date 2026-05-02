@@ -16,7 +16,7 @@ export const CustomMessage = () => {
         
         {/* Avatar */}
         <div className="shrink-0 mb-1">
-          <Avatar image={message.user?.image} name={message.user?.name} size="sm" className="rounded-full ring-1 ring-white/20" />
+          <Avatar imageUrl={message.user?.image} userName={message.user?.name} size="sm" className="rounded-full ring-1 ring-white/20" />
         </div>
 
         {/* Message Content */}
